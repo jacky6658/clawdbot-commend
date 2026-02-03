@@ -1,4 +1,4 @@
-# Clawdbot Gateway Port 18789 佔用與啟動失敗解決指南
+# Clawdbot-Gateway-埠佔用解決指南
 
 如果你遇到 `Gateway failed to start`、`Port 18789 is already in use` 或是 `Gateway port 18789 is not listening (service appears running)`，請參考此指南進行修復。
 
