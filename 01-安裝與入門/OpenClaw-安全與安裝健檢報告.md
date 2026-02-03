@@ -1,4 +1,4 @@
-# OpenClaw-安全與安裝健檢報告
+# OpenClaw (ClawdBot) 防護與安裝健檢報告（2026-02-02）
 
 依據《OpenClaw (原 ClawdBot) 全方位實作與安全指南》對本機現況所做的對照檢查。  
 本機為 **macOS**，路徑為 **~/.clawdbot**（ClawdBot 使用此目錄，等同指南中的 ~/.openclaw）。
