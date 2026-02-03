@@ -8,20 +8,20 @@
 
 | 檔案 | 說明 |
 |------|------|
-| **AI_AGENT_SAFETY_RULES_WITH_COMMANDS.md** | AI Agent 安全操作電腦規則（含指令說明），規範終端機與檔案操作的白名單、禁止行為與防呆流程，適用 Clawdbot / Cursor Agent 等 |
+| **AI-Agent-安全操作規則與指令.md** | AI Agent 安全操作電腦規則（含指令說明），規範終端機與檔案操作的白名單、禁止行為與防呆流程，適用 Clawdbot / Cursor Agent 等 |
 
 ### 技能（Skill）教學
 
 | 檔案 | 說明 |
 |------|------|
-| **Clawd_Skill_管理教學.md** | 技能安裝與管理 SOP：ClawdHub 安裝、`~/clawd/skills` 結構、查看與管理已安裝技能 |
-| **Clawdbot_PPT_Skill_多模板教學.md** | 多模板 AI 簡報產生器技能：從建立資料夾、模板到 Telegram `/ppt` 指令使用 |
+| **Clawd-技能-Skill-管理教學.md** | 技能安裝與管理 SOP：ClawdHub 安裝、`~/clawd/skills` 結構、查看與管理已安裝技能 |
+| **Clawdbot-PPT-技能-多模板教學.md** | 多模板 AI 簡報產生器技能：從建立資料夾、模板到 Telegram `/ppt` 指令使用 |
 
 ### 整合與擴充
 
 | 檔案 | 說明 |
 |------|------|
-| **Clawdbot_Google_Workspace_MCP_Setup.md** | Clawdbot + Google Workspace MCP：用自然語言操作 Gmail、Calendar、Drive、Docs、Sheets |
+| **Clawdbot-Google-Workspace-MCP-設定.md** | Clawdbot + Google Workspace MCP：用自然語言操作 Gmail、Calendar、Drive、Docs、Sheets |
 | **語音設置.md** | 本地 Whisper 語音轉文字：安裝與整合 Clawdbot，Telegram 傳語音自動回傳逐字稿（不需 API、不上雲） |
 
 ### 週邊安裝
