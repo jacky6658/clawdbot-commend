@@ -7,11 +7,11 @@
 | 檔案 | 說明 |
 |------|------|
 | **Clawdbot-Antigravity版本修復指南.md** | Antigravity 相關問題修復 |
-| **Clawdbot-Gateway-Port佔用解決指南.md** | Gateway 埠（如 18789）被佔用時的處理方式 |
+| **Clawdbot-Gateway-埠佔用解決指南.md** | Gateway 埠（如 18789）被佔用時的處理方式 |
 | **Clawdbot-多人對話與大腦隔離修復指南.md** | 多人對話與 session／大腦隔離相關修復 |
 | **Clawdbot-穩定性優化與模型配置指南.md** | 穩定性優化與模型、fallback 配置 |
-| **Clawdbot-記憶功能修復紀錄-2026-02-02.md** | 記憶功能問題與修復紀錄 |
-| **clawdbot-errors-status-2026-01-30.md** | 錯誤與狀態紀錄（可作除錯參考） |
+| **Clawdbot-記憶功能修復紀錄.md** | 記憶功能 unavailable、API 金鑰、embedding 設定與修復步驟 |
+| **Clawdbot-錯誤與狀態紀錄.md** | 常見日誌錯誤（AbortError、fetch failed、PDF Unicode、sudo）與處理參考 |
 
 ## 使用方式
 

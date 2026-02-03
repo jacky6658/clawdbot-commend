@@ -1,21 +1,22 @@
-# Clawdbot-Gateway-埠佔用解決指南
+# Clawdbot / OpenClaw Gateway 埠 18789 佔用與啟動失敗解決指南
 
-如果你遇到 `Gateway failed to start`、`Port 18789 is already in use` 或是 `Gateway port 18789 is not listening (service appears running)`，請參考此指南進行修復。
+若您遇到 `Gateway failed to start`、`Port 18789 is already in use` 或 `Gateway port 18789 is not listening (service appears running)`，可依本指南排查。  
+**說明**：若您使用的是 OpenClaw，請將下列指令中的 `clawdbot` 改為 `openclaw`；資料目錄為 `~/.openclaw`。
 
 ---
 
-## 問題 A：Port 被舊行程佔用
+## 問題 A：埠被舊行程佔用
+
 **現象**：顯示 `gateway already running (pid XXXX)`，導致無法啟動。
 
-### 徹底解決步驟
-請在本機終端機依序執行：
+### 解決步驟
 
-1. **強制停止現有服務**
+1. **先停止現有服務**
    ```bash
    clawdbot gateway stop
    ```
 
-2. **「強效清空」指令** (殺掉所有佔用 18789 的 node 行程)
+2. **若仍佔用，清除佔用 18789 的行程**
    ```bash
    lsof -iTCP:18789 -sTCP:LISTEN | awk 'NR>1 {print $2}' | xargs kill -9
    ```
@@ -27,17 +28,19 @@
 
 ---
 
-## 問題 B：服務顯示 Running 但 Port 沒打開 (1006 錯誤)
-**現象**：`clawdbot gateway status` 顯示 `running (pid XXXX)`，但隨後報錯 `Gateway port 18789 is not listening`。這通常是 NVM 路徑不一致或設定過舊導致。
+## 問題 B：服務顯示 Running 但埠未監聽（1006 錯誤）
 
-### 修復步驟
+**現象**：狀態顯示 `running (pid XXXX)`，但報錯 `Gateway port 18789 is not listening`。常見原因為 NVM 路徑不一致或 LaunchAgent 設定過舊。
+
+### 解決步驟
+
 1. **執行自動修復診斷**
    ```bash
    clawdbot doctor --repair
    ```
-   *這會修正 LaunchAgent 中的 Node 路徑問題。*
+   會嘗試修正 LaunchAgent 中的 Node 路徑問題。
 
-2. **重置並重啟**
+2. **停止、清空埠、再啟動**
    ```bash
    clawdbot gateway stop
    lsof -iTCP:18789 -sTCP:LISTEN | awk 'NR>1 {print $2}' | xargs kill -9
@@ -47,29 +50,32 @@
 ---
 
 ## 進階排錯：查看錯誤日誌
-如果上述步驟都無效，請查看詳細的錯誤原因：
 
-- **啟動錯誤日誌**：
+若上述步驟仍無法解決，可查看日誌確認錯誤原因：
+
+- **錯誤日誌**：
   ```bash
   tail -n 50 ~/.clawdbot/logs/gateway.err.log
   ```
-- **執行日誌**：
+- **一般日誌**：
   ```bash
   tail -n 50 ~/.clawdbot/logs/gateway.log
   ```
+（OpenClaw 使用者請改為 `~/.openclaw/logs/`。）
 
 ---
 
-## 日常管理快速對照表
+## 日常管理快速對照
 
 | 需求 | 指令 |
 |------|------|
-| **正常重啟** | `clawdbot gateway restart` |
-| **查看當前狀態** | `clawdbot gateway status` |
-| **安裝為背景服務** | `clawdbot gateway install` |
-| **修復環境問題** | `clawdbot doctor --repair` |
+| 正常重啟 | `clawdbot gateway restart` |
+| 查看狀態 | `clawdbot gateway status` |
+| 安裝為背景服務 | `clawdbot gateway install` |
+| 修復環境問題 | `clawdbot doctor --repair` |
 
 ---
 
 ## 驗證
-執行完畢後，執行 `clawdbot gateway status`。如果看到 **`online`** 且沒有紅色的 `failed` 訊息，即代表修復成功！
+
+執行完畢後執行 `clawdbot gateway status`。若看到 **`online`** 且無 `failed` 訊息，即表示修復成功。
